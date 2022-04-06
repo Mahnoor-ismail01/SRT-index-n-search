@@ -56,7 +56,7 @@ if __name__ == '__main__':
     f = open(r"a7.srt")
 
     p = f.read().replace("\n\n","\n")
-    print(p)
+  
 
 
 
@@ -71,7 +71,7 @@ if __name__ == '__main__':
     res = dict()
     ab=aa*3
     dlist=[]
-    print(dlist)
+    
 
 
     for sub in dicts:

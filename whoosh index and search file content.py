@@ -47,13 +47,13 @@ class SearchEngine:
 
 if __name__ == '__main__':
     l = []
-    f = open("/home/mahnoor/subtitle-generate/a7.srt","r")
+    f = open("a7.srt","r")
     for x in f:
         p=x.replace("\n\n","\n")
         l.append(p)
     aa=(len(l)//4)
     print(aa)
-    f = open(r"/home/mahnoor/subtitle-generate/a7.srt")
+    f = open(r"a7.srt")
 
     p = f.read().replace("\n\n","\n")
     print(p)

@@ -52,7 +52,7 @@ if __name__ == '__main__':
         p=x.replace("\n\n","\n")
         l.append(p)
     aa=(len(l)//4)
-    print(aa)
+  
     f = open(r"a7.srt")
 
     p = f.read().replace("\n\n","\n")
@@ -88,7 +88,7 @@ if __name__ == '__main__':
             res[sub.split(delim)[i+1]] = sub.split(delim)[i+2]
             doc["time_stamp"]= sub.split(delim)[i+1]
             doc["content"]=sub.split(delim)[i+2]
-            print(doc,"p")
+          
             dlist.append(doc)
        
 

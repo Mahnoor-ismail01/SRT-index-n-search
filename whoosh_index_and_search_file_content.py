@@ -1,4 +1,5 @@
 from typing import Dict, List, Sequence
+import re
 
 from whoosh.index import create_in
 from whoosh.fields import *
@@ -44,13 +45,13 @@ class SearchEngine:
 
 if __name__ == '__main__':
     l = []
-    f = open("a7.srt","r")
+    f = open("a5.srt","r")
     for x in f:
         p=x.replace("\n\n","\n")
         l.append(p)
     aa=(len(l)//4)
   
-    f = open(r"a7.srt")
+    f = open(r"a5.srt")
 #file
     p = f.read().replace("\n\n","\n")
     test_str = p
@@ -66,7 +67,12 @@ if __name__ == '__main__':
         for i in range(0,ab,3): 
             doc={}
             res[sub.split(delim)[i+1]] = sub.split(delim)[i+2]
-            doc["time_stamp"]= sub.split(delim)[i+1]
+            d= sub.split(delim)[i+1]
+            aq= re.findall("^[0-9][0-9]:[0-9][0-9]:[0-9][0-9]",d)
+            hh, mm, ss = aq[0].split(':')
+            qa=int(hh) * 3600 + int(mm) * 60 + int(ss)
+            doc['time']=qa
+            
             doc["content"]=sub.split(delim)[i+2]
             dlist.append(doc)
     schema = Schema(
@@ -85,5 +91,10 @@ if __name__ == '__main__':
 
     for q in ["vivian"]:
         print(f"Query:: {q}")
-        print("\t", engine.query(q, fields_to_search, highlight=True))
+        ap=engine.query(q, fields_to_search, highlight=True)
+        print("\t", ap)
         print("-"*70)
+        #a=open("/home/mahnoor/Downloads/che.txt","w")
+        #a.writelines(str(ap))
+        #a.close()
+       

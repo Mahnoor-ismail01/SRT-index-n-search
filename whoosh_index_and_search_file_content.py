@@ -52,7 +52,7 @@ if __name__ == '__main__':
     aa=(len(l)//4)
   
     f = open(r"a5.srt")
-#file
+#fileee
     p = f.read().replace("\n\n","\n")
     test_str = p
     delim = "\n"
